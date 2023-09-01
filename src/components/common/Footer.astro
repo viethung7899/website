@@ -1,0 +1,17 @@
+---
+import {Icons} from "@/components/icon"
+const year = new Date().getFullYear();
+---
+
+
+<span>
+  &copy; {year} Viet-Hung Nguyen.
+</span>
+<span class="flex items-center space-x-2">
+  <a href="https://github.com/viethung7899" target="_blank" title="GitHub" class="text-foreground/80 hover:text-foreground">
+    <Icons.gitHub className="w-4 h-4" />
+  </a>
+  <a href="https://linkedin.com/in/vhng7899" target="_blank" title="Linkedin" class="text-foreground/80 hover:text-foreground">
+    <Icons.linkedin className="w-4 h-4" />
+  </a>
+</span>

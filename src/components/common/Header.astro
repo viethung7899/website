@@ -1,0 +1,12 @@
+---
+import Logo from '../header/Logo.astro';
+import { NavigationLinks } from '../header/NavigationLinks';
+import { ThemeSwitcher } from '../theme/ThemeSwitcher';
+---
+
+
+<div class="flex">
+  <Logo />
+  <NavigationLinks />
+</div>
+<ThemeSwitcher client:load />
