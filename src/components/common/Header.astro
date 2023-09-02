@@ -1,18 +1,25 @@
 ---
 import type { Link } from '@/lib/links';
 import Logo from '../header/Logo.astro';
-import { DesktopLinks } from '../header/NavigationLinks';
+import { DesktopNavigation, MobileNavigation } from '../header/Navigation';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
 
 const LINKS: Link[] = [
-  { title: "Home", href: "/" },
-  { title: "Projects", href: "/projects"},
-  { title: "Blog", href: "https://github.com"}
-]
+  { title: 'Home', href: '/' },
+  { title: 'Projects', href: '/projects' },
+  { title: 'Blog', href: 'https://github.com' },
+];
+
+const active = Astro.url.pathname;
 ---
 
-<div class="flex">
-  <Logo />
-  <DesktopLinks links={LINKS} active={Astro.url.pathname} />
+<div
+  class="px-2 py-1 md:px-0 md:max-w-screen-md mx-auto flex items-center justify-between"
+>
+  <div class="flex items-center">
+    <Logo />
+    <MobileNavigation links={LINKS} active={active} client:load />
+    <DesktopNavigation links={LINKS} active={active} />
+  </div>
+  <ThemeSwitcher client:load />
 </div>
-<ThemeSwitcher client:load />

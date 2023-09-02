@@ -3,7 +3,6 @@ import '@/styles/globals.css';
 import ThemeProvider from '../components/theme/ThemeProvider.astro';
 import Header from '@/components/common/Header.astro';
 import Footer from '@/components/common/Footer.astro';
-
 interface Props {
   title: string;
 }
@@ -21,13 +20,13 @@ const { title } = Astro.props;
     <ThemeProvider />
   </head>
   <body class="min-h-screen flex flex-col">
-    <header class="px-2 p-1 border-b sticky flex items-center justify-between">
+    <header class="border-b sticky">
       <Header />
     </header>
     <main class="flex-1">
       <slot />
     </main>
-    <footer class="px-2 p-1 border-t sticky flex items-center justify-between text-xs">
+    <footer class="border-t">
       <Footer />
     </footer>
   </body>
