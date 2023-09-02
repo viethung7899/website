@@ -1,12 +1,18 @@
 ---
+import type { Link } from '@/lib/links';
 import Logo from '../header/Logo.astro';
-import { NavigationLinks } from '../header/NavigationLinks';
+import { DesktopLinks } from '../header/NavigationLinks';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
----
 
+const LINKS: Link[] = [
+  { title: "Home", href: "/" },
+  { title: "Projects", href: "/projects"},
+  { title: "Blog", href: "https://github.com"}
+]
+---
 
 <div class="flex">
   <Logo />
-  <NavigationLinks />
+  <DesktopLinks links={LINKS} active={Astro.url.pathname} />
 </div>
 <ThemeSwitcher client:load />
