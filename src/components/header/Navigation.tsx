@@ -1,6 +1,4 @@
-import type { Link } from "@/lib/links"
 import { cn } from "@/lib/utils"
-import { useEffect, useState } from "react"
 import { buttonVariants } from "../ui/button"
 import {
   NavigationMenu,
@@ -12,7 +10,7 @@ import {
 } from "../ui/navigation-menu"
 
 interface NavigationProps {
-  links: Link[],
+  links: { title: string, href: string }[],
 }
 
 export function Navigation({ links }: NavigationProps) {
@@ -42,7 +40,9 @@ export function Navigation({ links }: NavigationProps) {
         {/* Desktop version */}
         {links.map(({ title, href }) => (
           <NavigationMenuItem className="hidden sm:block">
-            <NavigationMenuLink asChild className={buttonVariants({ variant: "link" })}>
+            <NavigationMenuLink
+              asChild className={cn(buttonVariants({ variant: "link" }), "text-foreground")}
+            >
               <a href={href}>{title}</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
