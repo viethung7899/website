@@ -1,6 +1,6 @@
 export type Link = {
   title: string,
-  href: string,
+  href: `#${string}`,
 }
 
 

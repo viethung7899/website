@@ -5,12 +5,10 @@ import { Navigation } from '../header/Navigation';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
 
 const LINKS: Link[] = [
-  { title: 'Home', href: '/' },
-  { title: 'Projects', href: '/projects' },
-  { title: 'Blog', href: 'https://github.com' },
+  { title: 'About', href: '#top' },
+  { title: 'Experience', href: '#experience' },
+  { title: 'Projects', href: '#projects' }
 ];
-
-const active = Astro.url.pathname;
 ---
 
 <div
@@ -18,7 +16,7 @@ const active = Astro.url.pathname;
 >
   <div class="flex items-center">
     <Logo />
-    <!-- <Navigation links={LINKS} active={active} client:load /> -->
+    <Navigation links={LINKS} client:load />
   </div>
   <ThemeSwitcher client:load />
 </div>
