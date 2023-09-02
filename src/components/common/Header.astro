@@ -1,7 +1,7 @@
 ---
 import type { Link } from '@/lib/links';
 import Logo from '../header/Logo.astro';
-import { DesktopNavigation, MobileNavigation } from '../header/Navigation';
+import { Navigation } from '../header/Navigation';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
 
 const LINKS: Link[] = [
@@ -18,8 +18,7 @@ const active = Astro.url.pathname;
 >
   <div class="flex items-center">
     <Logo />
-    <MobileNavigation links={LINKS} active={active} client:load />
-    <DesktopNavigation links={LINKS} active={active} />
+    <Navigation links={LINKS} active={active} client:load />
   </div>
   <ThemeSwitcher client:load />
 </div>

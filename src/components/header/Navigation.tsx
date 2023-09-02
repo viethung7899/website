@@ -1,6 +1,6 @@
 import type { Link } from "@/lib/links"
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "../ui/button"
+import { buttonVariants } from "../ui/button"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,36 +17,25 @@ interface NavigationProps {
 
 const isExternal = (href: string) => href.startsWith("https://")
 
-export function DesktopNavigation({ links, active }: NavigationProps) {
-  return <nav className="hidden sm:flex items-center">
-    {links.map(({ title, href }) => (
-      <Button asChild variant="ghost" className={href !== active ? "text-foreground/60" : ""}>
-        <a
-          key={href}
-          href={href}
-          title={title}
-          target={isExternal(href) ? "_blank" : undefined}
-          className={isExternal(href) ? "after:content-['↗'] after:ml-1" : ""}>{title}</a>
-      </Button>
-    ))}
-  </nav>
-}
-
-export function MobileNavigation({ links, active }: NavigationProps) {
+export function Navigation({ links, active }: NavigationProps) {
   return (
-    <NavigationMenu className="sm:hidden">
+    <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
+        {/* Mobile version */}
+        <NavigationMenuItem className="sm:hidden">
           <NavigationMenuTrigger>{links.find(link => link.href === active)?.title || "Home"}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-40">
               {links.map(({ title, href }) => (
-                <li key={href} className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "justify-start text-foreground/60"
-                )}>
-                  <NavigationMenuLink asChild>
-                    <a href={href} className={isExternal(href) ? "after:content-['↗'] after:ml-1" : ""}>
+                <li key={href}>
+                  <NavigationMenuLink asChild className={cn(
+                    buttonVariants({ variant: "ghost", className: "rounded-none" }),
+                    "justify-start text-foreground/60"
+                  )}>
+                    <a href={href} className={cn(
+                      "w-full",
+                      isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined
+                    )}>
                       {title}
                     </a>
                   </NavigationMenuLink>
@@ -55,6 +44,21 @@ export function MobileNavigation({ links, active }: NavigationProps) {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        {/* Desktop version */}
+        {links.map(({ title, href }) => (
+          <NavigationMenuItem className="hidden sm:block">
+            <NavigationMenuLink asChild className={buttonVariants({
+              variant: "ghost"
+            })}>
+              <a href={href} className={cn(
+                isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined,
+                href !== active ? "text-foreground/60" : undefined
+              )}>
+                {title}
+              </a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   )
