@@ -1,12 +1,30 @@
 ---
-import Layout from '@/layouts/BaseLayout.astro';
-import About from "@/components/home/About.astro";
-import Experience from "@/components/home/Experience.astro"
-import Project from "@/components/home/Project.astro"
+import About from '@/components/home/About.astro';
+import Experience from '@/components/home/Experience.astro';
+import Project from '@/components/home/Project.astro';
 import { Separator } from '@/components/ui/separator';
+import Layout from '@/layouts/BaseLayout.astro';
+import { SEO } from 'astro-seo';
+
+const title = 'Viet-Hung Nguyen';
+const description =
+  'Viet-Hung Nguyen is an inspring software developer based on Vancouver and passionate about new technology';
 ---
 
 <Layout title="Home">
+  <SEO
+    slot="seo"
+    {title}
+    {description}
+    openGraph={{
+      basic: {
+        title,
+        type: "website",
+        image: new URL('/og.png', Astro.site).toString(),
+        url: new URL(Astro.url).href
+      },
+    }}
+  />
   <About />
   <Separator className="container p-0" />
   <Experience />
