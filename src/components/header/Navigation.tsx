@@ -1,5 +1,6 @@
 import type { Link } from "@/lib/links"
 import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react"
 import { buttonVariants } from "../ui/button"
 import {
   NavigationMenu,
@@ -20,7 +21,7 @@ export function Navigation({ links }: NavigationProps) {
       <NavigationMenuList>
         {/* Mobile version */}
         <NavigationMenuItem className="sm:hidden">
-          <NavigationMenuTrigger>{"Home"}</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Navigation</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-40">
               {links.map(({ title, href }) => (
@@ -41,10 +42,7 @@ export function Navigation({ links }: NavigationProps) {
         {/* Desktop version */}
         {links.map(({ title, href }) => (
           <NavigationMenuItem className="hidden sm:block">
-            <NavigationMenuLink asChild className={cn(
-              buttonVariants({ variant: "link" }),
-              "text-foreground/60 hover:text-foreground"
-            )}>
+            <NavigationMenuLink asChild className={buttonVariants({ variant: "link" })}>
               <a href={href}>{title}</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
