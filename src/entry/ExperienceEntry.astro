@@ -1,0 +1,36 @@
+---
+import { Badge } from '@/components/ui/badge';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'experience'>;
+}
+
+const entry = Astro.props.entry;
+const { role, place, start, end, technology } = entry.data;
+const { Content } = await entry.render();
+
+const formatter = new Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'short',
+});
+
+const range = (() => {
+  const startTime = new Date(start.year, start.month);
+  if (!end) return `${formatter.format(startTime)} \u2013 present`;
+  return formatter.formatRange(startTime, new Date(end.year, end.month - 1));
+})();
+---
+
+<li class="grid md:grid-cols-3 gap-2">
+  <small class="md:col-span-1 text-foreground/60">{range}</small>
+  <div class="md:col-span-2 space-y-2">
+    <h3 class="font-semibold">{role} • {place}</h3>
+    <div class="text-sm text-foreground/60">
+      <Content />
+    </div>
+    <div class="flex gap-2">
+      {technology.map((item) => <Badge variant="outline">{item}</Badge>)}
+    </div>
+  </div>
+</li>

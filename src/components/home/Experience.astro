@@ -1,3 +1,29 @@
+---
+import ExperienceEntry from '@/entry/ExperienceEntry.astro';
+import { getCollection } from 'astro:content';
+
+const experience = await getCollection('experience').then((result) => {
+  result.sort((a, b) => {
+    const startA = a.data.start;
+    const startB = b.data.start;
+
+    return (
+      startB.year * 12 +
+      startB.month -
+      1 -
+      (startA.year * 12 + startA.month - 1)
+    );
+  });
+  return result;
+});
+---
+
 <section id="experience" class="my-8">
-  <h3 class="text-2xl font-semibold tracking-tight text-primary">Experience</h3>
+  <h2 class="text-2xl font-semibold tracking-tight text-primary">
+    Experience 💻
+  </h2>
+  <p class="text-foreground/60">Some of my work I've done in the past</p>
+  <ul class="mt-8 space-y-8">
+    {experience.map((entry) => <ExperienceEntry {entry} />)}
+  </ul>
 </section>
