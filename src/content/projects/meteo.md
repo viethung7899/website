@@ -1,6 +1,6 @@
 ---
 title: Meteo
-screenshot: projects/meteo
+screenshot: ./meteo.png
 github: https://github.com/viethung7899/meteo
 demo: https://meteo-gradient.vercel.app
 technology: [svelte, tailwind]

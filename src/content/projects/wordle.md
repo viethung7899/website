@@ -1,6 +1,6 @@
 ---
 title: Wordle Solid
-screenshot: projects/wordle
+screenshot: ./wordle.png
 github: https://github.com/viethung7899/wordle-solid
 demo: https://wordle-solid.vercel.app
 technology: [solidjs, tailwind]

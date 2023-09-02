@@ -22,14 +22,14 @@ const range = (() => {
 })();
 ---
 
-<li class="grid md:grid-cols-3 gap-2">
-  <small class="md:col-span-1 text-foreground/60">{range}</small>
-  <div class="md:col-span-2 space-y-2">
+<li class="flex flex-col sm:flex-row gap-2">
+  <small class="text-foreground/60 w-36">{range}</small>
+  <div class="space-y-2 flex-1">
     <h3 class="font-semibold">{role} • {place}</h3>
     <div class="text-sm text-foreground/60">
       <Content />
     </div>
-    <div class="flex gap-2">
+    <div class="flex gap-1">
       {technology.map((item) => <Badge variant="outline">{item}</Badge>)}
     </div>
   </div>

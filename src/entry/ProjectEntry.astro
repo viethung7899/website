@@ -1,8 +1,59 @@
 ---
-import type { CollectionEntry } from "astro:content"
+import { Icons } from '@/components/icon';
+import { Badge } from '@/components/ui/badge';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  entry: CollectionEntry<"projects">
+  entry: CollectionEntry<'projects'>;
 }
+
+const entry = Astro.props.entry;
+
+const { title, demo, github, technology, screenshot } = entry.data;
+const { Content } = await entry.render();
 ---
 
+<li class="flex flex-col-reverse sm:flex-row gap-4">
+  <figure class="w-36">
+    {
+      screenshot ? (
+        <Image
+          src={screenshot}
+          alt={title}
+          width={640}
+          height={360}
+          format="avif"
+          class="border rounded-md"
+        />
+      ) : <div class="hidden bg-border sm:flex items-center rounded-md aspect-[16/9]">
+        <Icons.gitHub className="w-8 h-8 m-auto" />
+      </div>
+    }
+  </figure>
+  <div class="space-y-1 sm:flex-1">
+    <a href={demo || github} class="hover:underline">
+      <h3 class="font-semibold after:content-['_↗']">{title}</h3>
+    </a>
+    <div class="project-description">
+      <Content />
+    </div>
+    <div class="flex gap-1">
+      {technology.map((item) => <Badge variant="outline">{item}</Badge>)}
+    </div>
+  </div>
+</li>
+
+<style is:global>
+  .project-description {
+    @apply text-foreground/60 text-sm;
+  }
+
+  .project-description a {
+    @apply text-foreground hover:underline;
+  }
+
+  .project-description a::after {
+    content: ' ↗';
+  }
+</style>
