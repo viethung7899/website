@@ -22,15 +22,27 @@ const range = (() => {
 })();
 ---
 
-<li class="flex flex-col sm:flex-row gap-2">
+<li class="relative group flex flex-col sm:flex-row gap-2">
   <small class="text-foreground/60 w-36">{range}</small>
   <div class="space-y-2 flex-1">
-    <h3 class="font-semibold">{role} • {place}</h3>
+    <h3 class="font-semibold group-hover:text-primary transition-colors">{role} • {place}</h3>
     <div class="text-sm text-foreground/60">
       <Content />
     </div>
     <div class="flex gap-1">
-      {technology.map((item) => <Badge variant="outline">{item}</Badge>)}
+      {technology.map((item) => <Badge variant="outline" className="border-primary text-primary">{item}</Badge>)}
     </div>
   </div>
+  <div class="highlight rounded-md group-hover:bg-muted highlighter transition-colors" />
 </li>
+
+<style>
+  .highlight {
+    @apply absolute;
+    top: -1rem;
+    left: -1rem;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    z-index: -1;
+  }
+</style>

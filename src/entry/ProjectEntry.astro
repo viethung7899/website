@@ -14,7 +14,7 @@ const { title, demo, github, technology, screenshot } = entry.data;
 const { Content } = await entry.render();
 ---
 
-<li class="flex flex-col-reverse sm:flex-row gap-4">
+<li class="group relative flex flex-col-reverse sm:flex-row gap-4 transition-colors">
   <figure class="w-36">
     {
       screenshot ? (
@@ -26,22 +26,23 @@ const { Content } = await entry.render();
           format="avif"
           class="border rounded-md"
         />
-      ) : <div class="hidden bg-border sm:flex items-center rounded-md aspect-[16/9]">
+      ) : <div class="hidden border sm:flex items-center rounded-md aspect-[16/9]">
         <Icons.gitHub className="w-8 h-8 m-auto" />
       </div>
     }
   </figure>
   <div class="space-y-1 sm:flex-1">
-    <a href={demo || github} class="hover:underline">
-      <h3 class="font-semibold after:content-['_↗']">{title}</h3>
+    <a href={demo || github}>
+      <h3 class="font-semibold after:content-['_↗'] group-hover:text-primary">{title}</h3>
     </a>
     <div class="project-description">
       <Content />
     </div>
     <div class="flex gap-1">
-      {technology.map((item) => <Badge variant="outline">{item}</Badge>)}
+      {technology.map((item) => <Badge variant="outline" className="text-primary border-primary">{item}</Badge>)}
     </div>
   </div>
+  <div class="highlight rounded-md group-hover:bg-muted highlighter transition-colors" />
 </li>
 
 <style is:global>
@@ -55,5 +56,16 @@ const { Content } = await entry.render();
 
   .project-description a::after {
     content: ' ↗';
+  }
+</style>
+
+<style>
+  .highlight {
+    @apply absolute;
+    top: -1rem;
+    left: -1rem;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    z-index: -1;
   }
 </style>
