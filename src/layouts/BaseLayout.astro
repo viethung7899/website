@@ -18,7 +18,9 @@ import '@/styles/globals.css';
   </head>
   <body class="min-h-screen flex flex-col">
     <header class="border-b sticky top-0 bg-background z-40">
-      <Header />
+      <slot name="header">
+        <Header />
+      </slot>
     </header>
     <main class="flex-1">
       <slot />

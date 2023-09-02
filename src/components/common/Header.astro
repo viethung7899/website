@@ -7,11 +7,11 @@ import { Icons } from '../icon';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
 import { buttonVariants } from '../ui/button';
 
-const links = [
-  { title: 'About', href: '#about' },
-  { title: 'Experience', href: '#experience' },
-  { title: 'Projects', href: '#projects' },
-];
+interface Props {
+  links?: {title: string, href: string}[]
+}
+
+const links = Astro.props.links || []
 ---
 
 <div class="container py-1 flex items-center justify-between">

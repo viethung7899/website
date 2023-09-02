@@ -14,6 +14,8 @@ interface NavigationProps {
 }
 
 export function Navigation({ links }: NavigationProps) {
+  if (links.length == 0) return null;
+
   return (
     <NavigationMenu className="ml-2">
       <NavigationMenuList>

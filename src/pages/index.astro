@@ -1,17 +1,24 @@
 ---
+import Header from '@/components/common/Header.astro';
 import About from '@/components/home/About.astro';
 import Experience from '@/components/home/Experience.astro';
 import Project from '@/components/home/Project.astro';
 import { Separator } from '@/components/ui/separator';
-import Layout from '@/layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SEO } from 'astro-seo';
 
 const title = 'Viet-Hung Nguyen';
 const description =
   'Viet-Hung Nguyen is an inspring software developer based on Vancouver and passionate about new technology';
+
+const navigations = [
+  { title: 'About', href: '#about' },
+  { title: 'Experience', href: '#experience' },
+  { title: 'Projects', href: '#projects' },
+];
 ---
 
-<Layout title="Home">
+<BaseLayout>
   <SEO
     slot="seo"
     {title}
@@ -25,9 +32,10 @@ const description =
       },
     }}
   />
+  <Header slot="header" links={navigations} client:load />
   <About />
   <Separator className="container p-0" />
   <Experience />
   <Separator className="container p-0" />
   <Project />
-</Layout>
+</BaseLayout>
