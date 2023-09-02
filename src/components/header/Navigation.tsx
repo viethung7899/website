@@ -19,7 +19,7 @@ const isExternal = (href: string) => href.startsWith("https://")
 
 export function Navigation({ links, active }: NavigationProps) {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="ml-2">
       <NavigationMenuList>
         {/* Mobile version */}
         <NavigationMenuItem className="sm:hidden">
@@ -34,7 +34,7 @@ export function Navigation({ links, active }: NavigationProps) {
                   )}>
                     <a href={href} className={cn(
                       "w-full",
-                      isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined
+                      isExternal(href) ? "after:content-['↗'] after:pl-1" : undefined
                     )}>
                       {title}
                     </a>
@@ -47,15 +47,12 @@ export function Navigation({ links, active }: NavigationProps) {
         {/* Desktop version */}
         {links.map(({ title, href }) => (
           <NavigationMenuItem className="hidden sm:block">
-            <NavigationMenuLink asChild className={buttonVariants({
-              variant: "ghost"
-            })}>
-              <a href={href} className={cn(
-                isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined,
-                href !== active ? "text-foreground/60" : undefined
-              )}>
-                {title}
-              </a>
+            <NavigationMenuLink asChild className={cn(
+              buttonVariants({ variant: "link" }),
+              isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined,
+              href !== active ? "text-foreground/60 hover:text-foreground" : undefined
+            )}>
+              <a href={href}>{title}</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

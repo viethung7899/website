@@ -1,8 +1,15 @@
 ---
 import Layout from '@/layouts/BaseLayout.astro';
-import About from "@/components/home/About.astro"
+import About from "@/components/home/About.astro";
+import Experience from "@/components/home/Experience.astro"
+import Project from "@/components/home/Project.astro"
+import { Separator } from '@/components/ui/separator';
 ---
 
 <Layout title="Home">
-  
+  <About />
+  <Separator />
+  <Experience />
+  <Separator />
+  <Project />
 </Layout>
