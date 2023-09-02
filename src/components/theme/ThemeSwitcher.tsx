@@ -8,8 +8,8 @@ export const ThemeSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="icon" variant="ghost">
-          <Sun className="dark:hidden w-6 h-6" />
-          <Moon className="hidden dark:block w-6 h-6" />
+          <Sun className="dark:hidden w-4 h-4" />
+          <Moon className="hidden dark:block w-4 h-4" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

@@ -1,17 +1,30 @@
 ---
-import {Icons} from "@/components/icon"
+import { Icons } from '@/components/icon';
+import { GITHUB, LINKEDIN } from '@/lib/constants';
 const year = new Date().getFullYear();
 ---
 
-<div class="container py-2 flex items-center justify-between text-xs sm:text-sm">
+<div
+  class="container py-2 flex items-center justify-between text-xs sm:text-sm"
+>
   <span>
     &copy; {year} Viet-Hung Nguyen.
   </span>
   <span class="flex items-center space-x-4">
-    <a href="https://github.com/viethung7899" target="_blank" title="GitHub" class="text-foreground/80 hover:text-foreground">
+    <a
+      href={GITHUB}
+      target="_blank"
+      title="GitHub"
+      class="text-foreground/80 hover:text-foreground"
+    >
       <Icons.gitHub className="w-4 h-4" />
     </a>
-    <a href="https://linkedin.com/in/vhng7899" target="_blank" title="Linkedin" class="text-foreground/80 hover:text-foreground">
+    <a
+      href={LINKEDIN}
+      target="_blank"
+      title="Linkedin"
+      class="text-foreground/80 hover:text-foreground"
+    >
       <Icons.linkedin className="w-4 h-4" />
     </a>
   </span>

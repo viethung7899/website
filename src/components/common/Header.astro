@@ -1,22 +1,44 @@
 ---
+import { GITHUB, LINKEDIN } from '@/lib/constants';
 import type { Link } from '@/lib/links';
 import Logo from '../header/Logo.astro';
 import { Navigation } from '../header/Navigation';
+import { Icons } from '../icon';
 import { ThemeSwitcher } from '../theme/ThemeSwitcher';
+import { buttonVariants } from '../ui/button';
 
 const LINKS: Link[] = [
-  { title: 'About', href: '#top' },
+  { title: 'About', href: '#about' },
   { title: 'Experience', href: '#experience' },
-  { title: 'Projects', href: '#projects' }
+  { title: 'Projects', href: '#projects' },
 ];
 ---
 
-<div
-  class="container py-1 flex items-center justify-between"
->
+<div class="container py-1 flex items-center justify-between">
   <div class="flex items-center">
     <Logo />
     <Navigation links={LINKS} client:load />
   </div>
-  <ThemeSwitcher client:load />
+  <div class="flex items-center">
+    <a href="" class={buttonVariants({ variant: 'link'})}>
+      <span class="after:content-['_↗']">Blog</span>
+    </a>
+    <a
+      href={GITHUB}
+      target="_blank"
+      title="GitHub"
+      class={buttonVariants({ variant: 'ghost', size: "icon" })}
+    >
+      <Icons.gitHub className="w-4 h-4" />
+    </a>
+    <a
+      href={LINKEDIN}
+      target="_blank"
+      title="Linkedin"
+      class={buttonVariants({ variant: 'ghost', size: "icon" })}
+    >
+      <Icons.linkedin className="w-4 h-4" />
+    </a>
+    <ThemeSwitcher client:load />
+  </div>
 </div>

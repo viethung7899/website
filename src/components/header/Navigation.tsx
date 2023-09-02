@@ -12,18 +12,15 @@ import {
 
 interface NavigationProps {
   links: Link[],
-  active?: string
 }
 
-const isExternal = (href: string) => href.startsWith("https://")
-
-export function Navigation({ links, active }: NavigationProps) {
+export function Navigation({ links }: NavigationProps) {
   return (
     <NavigationMenu className="ml-2">
       <NavigationMenuList>
         {/* Mobile version */}
         <NavigationMenuItem className="sm:hidden">
-          <NavigationMenuTrigger>{links.find(link => link.href === active)?.title || "Home"}</NavigationMenuTrigger>
+          <NavigationMenuTrigger>{"Home"}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-40">
               {links.map(({ title, href }) => (
@@ -32,10 +29,7 @@ export function Navigation({ links, active }: NavigationProps) {
                     buttonVariants({ variant: "ghost", className: "rounded-none" }),
                     "justify-start text-foreground/60"
                   )}>
-                    <a href={href} className={cn(
-                      "w-full",
-                      isExternal(href) ? "after:content-['↗'] after:pl-1" : undefined
-                    )}>
+                    <a href={href} className="w-full">
                       {title}
                     </a>
                   </NavigationMenuLink>
@@ -49,8 +43,7 @@ export function Navigation({ links, active }: NavigationProps) {
           <NavigationMenuItem className="hidden sm:block">
             <NavigationMenuLink asChild className={cn(
               buttonVariants({ variant: "link" }),
-              isExternal(href) ? "after:content-['↗'] after:ml-1" : undefined,
-              href !== active ? "text-foreground/60 hover:text-foreground" : undefined
+              "text-foreground/60 hover:text-foreground"
             )}>
               <a href={href}>{title}</a>
             </NavigationMenuLink>
