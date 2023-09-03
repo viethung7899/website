@@ -33,16 +33,6 @@ const range = (() => {
       {technology.map((item) => <Badge variant="outline" className="border-primary text-primary">{item}</Badge>)}
     </div>
   </div>
-  <div class="highlight rounded-md group-hover:bg-muted highlighter transition-colors" />
+  <div class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted transition-colors" />
 </li>
 
-<style>
-  .highlight {
-    @apply absolute;
-    top: -1rem;
-    left: -1rem;
-    width: calc(100% + 2rem);
-    height: calc(100% + 2rem);
-    z-index: -1;
-  }
-</style>
