@@ -27,8 +27,8 @@ const navigations = [
       basic: {
         title,
         type: "website",
-        image: new URL('/og.png', Astro.site).toString(),
-        url: new URL(Astro.url).href
+        image: new URL('og.png', Astro.site).toString(),
+        url: Astro.site
       },
     }}
   />
