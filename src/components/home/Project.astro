@@ -1,6 +1,6 @@
 ---
-import ProjectEntry from "@/entry/ProjectEntry.astro";
-import { getCollection } from "astro:content";
+import ProjectEntry from "@/entry/ProjectEntry.astro"
+import { getCollection } from "astro:content"
 const projects = await getCollection("projects").then((result) => {
   result.sort((a, b) => +b.data.date - +a.data.date)
   return result
@@ -9,7 +9,9 @@ const projects = await getCollection("projects").then((result) => {
 
 <section id="projects" class="container my-8 scroll-mt-16">
   <h3 class="text-2xl font-semibold tracking-tight">Projects 🚀</h3>
-  <p class="text-foreground/60">A collection of projects for university courses and my programming hobbies</p>
+  <p class="text-foreground/60">
+    A collection of projects for university courses and my programming hobbies
+  </p>
   <ul class="mt-8 space-y-8">
     {projects.map((entry) => <ProjectEntry {entry} />)}
   </ul>

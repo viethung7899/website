@@ -1,7 +1,7 @@
 ---
-import Footer from '@/components/common/Footer.astro';
-import Header from '@/components/common/Header.astro';
-import '@/styles/globals.css';
+import Footer from "@/components/common/Footer.astro"
+import Header from "@/components/common/Header.astro"
+import "@/styles/globals.css"
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -15,7 +15,11 @@ import '@/styles/globals.css';
     <meta name="generator" content={Astro.generator} />
     <script is:inline src="/theme.js"></script>
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          ;(window.vaq = window.vaq || []).push(arguments)
+        }
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <slot name="seo" />

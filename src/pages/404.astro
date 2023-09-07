@@ -1,19 +1,17 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { SEO } from 'astro-seo';
-import { Separator } from "@/components/ui/separator";
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { SEO } from "astro-seo"
+import { Separator } from "@/components/ui/separator"
 
 const title = "Page not found"
 const description = "Are you lost?"
 ---
 
 <BaseLayout>
-  <SEO
-    slot="seo"
-    {title}
-    {description}
-  />
-  <section class="flex-1 container flex items-center justify-center space-x-4 text-foreground/80">
+  <SEO slot="seo" {title} {description} />
+  <section
+    class="flex-1 container flex items-center justify-center space-x-4 text-foreground/80"
+  >
     <h1 class="font-mono font-semibold text-lg">404</h1>
     <Separator orientation="vertical" className="h-12" />
     <h2>This page could not be found.</h2>

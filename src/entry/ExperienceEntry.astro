@@ -1,38 +1,48 @@
 ---
-import { Badge } from '@/components/ui/badge';
-import type { CollectionEntry } from 'astro:content';
+import { Badge } from "@/components/ui/badge"
+import type { CollectionEntry } from "astro:content"
 
 interface Props {
-  entry: CollectionEntry<'experience'>;
+  entry: CollectionEntry<"experience">
 }
 
-const entry = Astro.props.entry;
-const { role, place, start, end, technology } = entry.data;
-const { Content } = await entry.render();
+const entry = Astro.props.entry
+const { role, place, start, end, technology } = entry.data
+const { Content } = await entry.render()
 
-const formatter = new Intl.DateTimeFormat('en', {
-  year: 'numeric',
-  month: 'short',
-});
+const formatter = new Intl.DateTimeFormat("en", {
+  year: "numeric",
+  month: "short"
+})
 
 const range = (() => {
-  const startTime = new Date(start.year, start.month);
-  if (!end) return `${formatter.format(startTime)} \u2013 present`;
-  return formatter.formatRange(startTime, new Date(end.year, end.month - 1));
-})();
+  const startTime = new Date(start.year, start.month)
+  if (!end) return `${formatter.format(startTime)} \u2013 present`
+  return formatter.formatRange(startTime, new Date(end.year, end.month - 1))
+})()
 ---
 
 <li class="relative group flex flex-col sm:flex-row gap-2">
   <small class="text-foreground/60 w-36">{range}</small>
   <div class="space-y-2 flex-1">
-    <h3 class="font-semibold group-hover:text-primary transition-colors">{role} • {place}</h3>
+    <h3 class="font-semibold group-hover:text-primary transition-colors">
+      {role} • {place}
+    </h3>
     <div class="text-sm text-foreground/60">
       <Content />
     </div>
     <div class="flex gap-1">
-      {technology.map((item) => <Badge variant="outline" className="border-primary text-primary">{item}</Badge>)}
+      {
+        technology.map((item) => (
+          <Badge variant="outline" className="border-primary text-primary">
+            {item}
+          </Badge>
+        ))
+      }
     </div>
   </div>
-  <div class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted transition-colors" />
+  <div
+    class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted transition-colors"
+  >
+  </div>
 </li>
-

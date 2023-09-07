@@ -1,14 +1,14 @@
 ---
-import { GITHUB, LINKEDIN } from '@/lib/constants';
-import { cn } from '@/lib/utils';
-import Logo from '../header/Logo.astro';
-import { Navigation } from '../header/Navigation';
-import { Icons } from '../icon';
-import { ThemeSwitcher } from '../theme/ThemeSwitcher';
-import { buttonVariants } from '../ui/button';
+import { GITHUB, LINKEDIN } from "@/lib/constants"
+import { cn } from "@/lib/utils"
+import Logo from "../header/Logo.astro"
+import { Navigation } from "../header/Navigation"
+import { Icons } from "../icon"
+import { ThemeSwitcher } from "../theme/ThemeSwitcher"
+import { buttonVariants } from "../ui/button"
 
 interface Props {
-  links?: {title: string, href: string}[]
+  links?: { title: string; href: string }[]
 }
 
 const links = Astro.props.links || []
@@ -22,7 +22,7 @@ const links = Astro.props.links || []
   <div class="flex items-center">
     <a
       href="https://blog.vhng.dev"
-      class={cn(buttonVariants({ variant: 'link' }), 'text-foreground')}
+      class={cn(buttonVariants({ variant: "link" }), "text-foreground")}
     >
       <span class="after:content-['_↗']">Blog</span>
     </a>
@@ -30,7 +30,7 @@ const links = Astro.props.links || []
       href={GITHUB}
       target="_blank"
       title="GitHub"
-      class={buttonVariants({ variant: 'ghost', size: 'icon' })}
+      class={buttonVariants({ variant: "ghost", size: "icon" })}
     >
       <Icons.gitHub className="w-4 h-4" />
     </a>
@@ -38,7 +38,7 @@ const links = Astro.props.links || []
       href={LINKEDIN}
       target="_blank"
       title="Linkedin"
-      class={buttonVariants({ variant: 'ghost', size: 'icon' })}
+      class={buttonVariants({ variant: "ghost", size: "icon" })}
     >
       <Icons.linkedin className="w-4 h-4" />
     </a>

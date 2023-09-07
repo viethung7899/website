@@ -1,21 +1,21 @@
 ---
-import Header from '@/components/common/Header.astro';
-import About from '@/components/home/About.astro';
-import Experience from '@/components/home/Experience.astro';
-import Project from '@/components/home/Project.astro';
-import { Separator } from '@/components/ui/separator';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { SEO } from 'astro-seo';
+import Header from "@/components/common/Header.astro"
+import About from "@/components/home/About.astro"
+import Experience from "@/components/home/Experience.astro"
+import Project from "@/components/home/Project.astro"
+import { Separator } from "@/components/ui/separator"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { SEO } from "astro-seo"
 
-const title = 'Viet-Hung Nguyen';
+const title = "Viet-Hung Nguyen"
 const description =
-  'Viet-Hung Nguyen is an inspring software developer based on Vancouver and passionate about new technology';
+  "Viet-Hung Nguyen is an inspring software developer based on Vancouver and passionate about new technology"
 
 const navigations = [
-  { title: 'About', href: '#about' },
-  { title: 'Experience', href: '#experience' },
-  { title: 'Projects', href: '#projects' },
-];
+  { title: "About", href: "#about" },
+  { title: "Experience", href: "#experience" },
+  { title: "Projects", href: "#projects" }
+]
 ---
 
 <BaseLayout>
@@ -27,9 +27,9 @@ const navigations = [
       basic: {
         title,
         type: "website",
-        image: new URL('og.png', Astro.site).toString(),
+        image: new URL("og.png", Astro.site).toString(),
         url: Astro.site
-      },
+      }
     }}
   />
   <Header slot="header" links={navigations} />

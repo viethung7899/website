@@ -10,11 +10,11 @@ import {
 } from "../ui/navigation-menu"
 
 interface NavigationProps {
-  links: { title: string, href: string }[],
+  links: { title: string; href: string }[]
 }
 
 export function Navigation({ links }: NavigationProps) {
-  if (links.length == 0) return null;
+  if (links.length == 0) return null
 
   return (
     <NavigationMenu className="ml-2">
@@ -26,10 +26,16 @@ export function Navigation({ links }: NavigationProps) {
             <ul className="grid w-40">
               {links.map(({ title, href }) => (
                 <li key={href}>
-                  <NavigationMenuLink asChild className={cn(
-                    buttonVariants({ variant: "ghost", className: "rounded-none" }),
-                    "justify-start text-foreground/60"
-                  )}>
+                  <NavigationMenuLink
+                    asChild
+                    className={cn(
+                      buttonVariants({
+                        variant: "ghost",
+                        className: "rounded-none"
+                      }),
+                      "justify-start text-foreground/60"
+                    )}
+                  >
                     <a href={href} className="w-full">
                       {title}
                     </a>
@@ -43,7 +49,11 @@ export function Navigation({ links }: NavigationProps) {
         {links.map(({ title, href }) => (
           <NavigationMenuItem className="hidden sm:block">
             <NavigationMenuLink
-              asChild className={cn(buttonVariants({ variant: "link" }), "text-foreground")}
+              asChild
+              className={cn(
+                buttonVariants({ variant: "link" }),
+                "text-foreground"
+              )}
             >
               <a href={href}>{title}</a>
             </NavigationMenuLink>
@@ -53,4 +63,3 @@ export function Navigation({ links }: NavigationProps) {
     </NavigationMenu>
   )
 }
-

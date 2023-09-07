@@ -1,11 +1,20 @@
 import { Moon, Sun } from "lucide-react"
 import { Button } from "../ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "../ui/dropdown-menu"
 
 type Theme = "system" | "light" | "dark"
 
 const setTheme = (theme: Theme) => () => {
-  if (theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+  if (
+    theme === "dark" ||
+    (theme === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
     document.documentElement.classList.add("dark")
   } else {
     document.documentElement.classList.remove("dark")
@@ -22,8 +31,8 @@ export const ThemeSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="icon" variant="ghost">
-          <Sun className="dark:hidden w-4 h-4" />
-          <Moon className="hidden dark:block w-4 h-4" />
+          <Sun className="h-4 w-4 dark:hidden" />
+          <Moon className="hidden h-4 w-4 dark:block" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

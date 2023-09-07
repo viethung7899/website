@@ -1,20 +1,22 @@
 ---
-import { Icons } from '@/components/icon';
-import { Badge } from '@/components/ui/badge';
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { Icons } from "@/components/icon"
+import { Badge } from "@/components/ui/badge"
+import { Image } from "astro:assets"
+import type { CollectionEntry } from "astro:content"
 
 interface Props {
-  entry: CollectionEntry<'projects'>;
+  entry: CollectionEntry<"projects">
 }
 
-const entry = Astro.props.entry;
+const entry = Astro.props.entry
 
-const { title, demo, github, technology, screenshot } = entry.data;
-const { Content } = await entry.render();
+const { title, demo, github, technology, screenshot } = entry.data
+const { Content } = await entry.render()
 ---
 
-<li class="group relative flex flex-col-reverse sm:flex-row gap-4 transition-colors">
+<li
+  class="group relative flex flex-col-reverse sm:flex-row gap-4 transition-colors"
+>
   <figure class="w-36">
     {
       screenshot ? (
@@ -26,28 +28,41 @@ const { Content } = await entry.render();
           format="avif"
           class="border rounded-md"
         />
-      ) : <div class="hidden border sm:flex items-center rounded-md aspect-[16/9]">
-        <Icons.gitHub className="w-8 h-8 m-auto" />
-      </div>
+      ) : (
+        <div class="hidden border sm:flex items-center rounded-md aspect-[16/9]">
+          <Icons.gitHub className="w-8 h-8 m-auto" />
+        </div>
+      )
     }
   </figure>
   <div class="space-y-1 sm:flex-1">
     <a href={demo || github}>
-      <h3 class="font-semibold after:content-['_↗'] group-hover:text-primary">{title}</h3>
+      <h3 class="font-semibold after:content-['_↗'] group-hover:text-primary">
+        {title}
+      </h3>
     </a>
     <div class="project-description">
       <Content />
     </div>
     <div class="flex gap-1">
-      {technology.map((item) => <Badge variant="outline" className="text-primary border-primary">{item}</Badge>)}
+      {
+        technology.map((item) => (
+          <Badge variant="outline" className="text-primary border-primary">
+            {item}
+          </Badge>
+        ))
+      }
     </div>
   </div>
-  <div class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted highlighter transition-colors" />
+  <div
+    class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted highlighter transition-colors"
+  >
+  </div>
 </li>
 
 <style is:global>
   .project-description {
-    @apply text-foreground/60 text-sm;
+    @apply text-sm text-foreground/60;
   }
 
   .project-description a {
@@ -55,6 +70,6 @@ const { Content } = await entry.render();
   }
 
   .project-description a::after {
-    content: ' ↗';
+    content: " ↗";
   }
 </style>
