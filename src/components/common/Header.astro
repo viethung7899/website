@@ -1,5 +1,5 @@
 ---
-import { GITHUB, LINKEDIN } from "@/lib/constants"
+import { BLOG, GITHUB, LINKEDIN } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Logo from "../header/Logo.astro"
 import { Navigation } from "../header/Navigation"
@@ -21,7 +21,7 @@ const links = Astro.props.links || []
   </div>
   <div class="flex items-center">
     <a
-      href="https://blog.vhng.dev"
+      href={BLOG}
       class={cn(buttonVariants({ variant: "link" }), "text-foreground")}
     >
       <span class="after:content-['_↗']">Blog</span>
