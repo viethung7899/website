@@ -2,45 +2,19 @@
 import { BLOG, GITHUB, LINKEDIN } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Logo from "../header/Logo.astro"
-import { Navigation } from "../header/Navigation"
 import { Icons } from "../icon"
 import { ThemeSwitcher } from "../theme/ThemeSwitcher"
 import { buttonVariants } from "../ui/button"
-
-interface Props {
-  links?: { title: string; href: string }[]
-}
-
-const links = Astro.props.links || []
 ---
 
 <div class="container py-1 flex items-center justify-between">
-  <div class="flex items-center">
-    <Logo />
-    <Navigation {links} client:load={links.length > 0} />
-  </div>
+  <Logo />
   <div class="flex items-center">
     <a
       href={BLOG}
       class={cn(buttonVariants({ variant: "link" }), "text-foreground")}
     >
       <span class="after:content-['_↗']">Blog</span>
-    </a>
-    <a
-      href={GITHUB}
-      target="_blank"
-      title="GitHub"
-      class={buttonVariants({ variant: "ghost", size: "icon" })}
-    >
-      <Icons.gitHub className="w-4 h-4" />
-    </a>
-    <a
-      href={LINKEDIN}
-      target="_blank"
-      title="Linkedin"
-      class={buttonVariants({ variant: "ghost", size: "icon" })}
-    >
-      <Icons.linkedin className="w-4 h-4" />
     </a>
     <ThemeSwitcher client:load />
   </div>
