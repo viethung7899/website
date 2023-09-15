@@ -1,8 +1,8 @@
-# [Portfolio](https://vhn.vercel.dev)
+# [Website](https://vhng.dev)
 
 [![Built with Astro](https://astro.badg.es/v1/built-with-astro/medium.svg)](https://astro.build)
 
-The source code for my personal website. This is version 3 of my portfolio, shipped with design system with minal aesthetics. Additionally, the blog section will be moved to a new domain.
+The source code for my personal website. This is version 3 of my portfolio, shipped with a design system with minimal aesthetics. Additionally, the blog section will be moved to a new domain.
 
 ## Technology
 
@@ -11,5 +11,5 @@ The source code for my personal website. This is version 3 of my portfolio, ship
 
 ## Wishlist for my site
 
-- [ ] Separate site for blog
+- [x] Separate site for [blog](https://blog.vhng.dev)
 - [x] Analytics
