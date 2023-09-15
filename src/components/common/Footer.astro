@@ -1,4 +1,6 @@
 ---
+import { GITHUB, LINKEDIN } from "@/lib/constants"
+import { Icons } from "../icon"
 const year = new Date().getFullYear()
 ---
 
@@ -8,13 +10,22 @@ const year = new Date().getFullYear()
   <span>
     &copy; {year} Viet-Hung Nguyen.
   </span>
-  <span>
-    Build with <a
-      href="https://astro.build"
+  <span class="flex space-x-4">
+    <a
+      href={GITHUB}
       target="_blank"
-      class="font-semibold hover:text-primary"
+      title="GitHub"
+      class="text-foreground/80 hover:text-foreground"
     >
-      Astro
-    </a> and ❤️
+      <Icons.gitHub className="w-4 h-4" />
+    </a>
+    <a
+      href={LINKEDIN}
+      target="_blank"
+      title="Linkedin"
+      class="text-foreground/80 hover:text-foreground"
+    >
+      <Icons.linkedin className="w-4 h-4" />
+    </a>
   </span>
 </div>
