@@ -1,6 +1,5 @@
 ---
-import { GITHUB, LINKEDIN } from "@/lib/constants";
-
+import { GITHUB, LINKEDIN } from "@/lib/constants"
 ---
 
 <section id="about" class="my-8 space-y-4 container scroll-mt-16">
@@ -12,8 +11,8 @@ import { GITHUB, LINKEDIN } from "@/lib/constants";
       University.
     </p>
     <p>
-      I enjoy creating beautiful and user-friendly applications and I'm passionate
-      to learn new technology.
+      I enjoy creating beautiful and user-friendly applications and I'm
+      passionate to learn new technology.
     </p>
     <p>
       Find me on <a href={LINKEDIN}>Linkedin</a> or <a href={GITHUB}>GitHub</a>
@@ -23,9 +22,9 @@ import { GITHUB, LINKEDIN } from "@/lib/constants";
 
 <style>
   p {
-    @apply text-foreground/80 text-sm;
+    @apply text-sm text-foreground/80;
   }
   a {
-   @apply text-foreground hover:text-primary underline after:content-['_↗']; 
+    @apply text-foreground underline after:content-['_↗'] hover:text-primary;
   }
 </style>
