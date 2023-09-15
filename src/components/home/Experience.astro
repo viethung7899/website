@@ -1,5 +1,5 @@
 ---
-import ExperienceEntry from "@/entry/ExperienceEntry.astro"
+import ExperienceEntry from "@/components/entry/ExperienceEntry.astro"
 import { getCollection } from "astro:content"
 
 const experience = await getCollection("experience").then((result) => {

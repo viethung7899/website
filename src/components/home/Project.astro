@@ -1,5 +1,5 @@
 ---
-import ProjectEntry from "@/entry/ProjectEntry.astro"
+import ProjectEntry from "@/components/entry/ProjectEntry.astro"
 import { getCollection } from "astro:content"
 const projects = await getCollection("projects").then((result) => {
   result.sort((a, b) => +b.data.date - +a.data.date)
