@@ -1,6 +1,7 @@
 ---
 import Footer from "@/components/Footer.astro"
 import Header from "@/components/Header.astro"
+import ThemeProvider from "@/components/theme/ThemeProvider.astro"
 import "@/styles/globals.css"
 ---
 
@@ -13,8 +14,8 @@ import "@/styles/globals.css"
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <script is:inline src="/theme.js"></script>
     <slot name="seo" />
+    <ThemeProvider />
   </head>
   <body class="min-h-screen flex flex-col">
     <header class="border-b sticky top-0 bg-background z-40">
