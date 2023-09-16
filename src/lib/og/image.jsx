@@ -12,7 +12,14 @@ export function OGMain(props) {
         backgroundImage: `url(data:image/png;base64,${imageBase64})`
       }}
     >
-      <div tw="text-5xl font-bold text-blue-500">V_</div>
+      <div
+        tw="text-4xl font-semibold text-sky-500"
+        style={{
+          fontFamily: "JetBrains Mono"
+        }}
+      >
+        [vhng]
+      </div>
       <div tw="flex flex-col">
         <div tw="text-5xl font-semibold">Viet-Hung Nguyen</div>
         <p tw="text-3xl opacity-80">Software developer</p>
