@@ -87,7 +87,9 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel className="after:content-['*'] after:text-destructive">Name</FormLabel>
+              <FormLabel className="after:text-destructive after:content-['*']">
+                Name
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Who are you?"
@@ -105,7 +107,9 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel className="after:content-['*'] after:text-destructive">Email</FormLabel>
+              <FormLabel className="after:text-destructive after:content-['*']">
+                Email
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="How can I contact you?"
@@ -123,7 +127,9 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel className="after:content-['*'] after:text-destructive">Message</FormLabel>
+              <FormLabel className="after:text-destructive after:content-['*']">
+                Message
+              </FormLabel>
               <FormControl>
                 <Textarea
                   maxLength={MAX_MESSAGE_LENGTH}
