@@ -1,4 +1,7 @@
+import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2, Send } from "lucide-react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { Button } from "../ui/button"
@@ -38,7 +41,7 @@ const formSchema = z.object({
     })
 })
 
-type FormSchema = z.infer<typeof formSchema>
+export type FormSchema = z.infer<typeof formSchema>
 
 export function ContactForm() {
   const form = useForm<FormSchema>({
@@ -50,9 +53,30 @@ export function ContactForm() {
       message: ""
     }
   })
+  const [result, setResult] = useState({
+    message: "",
+    error: false
+  })
 
-  const onSubmit = (data: FormSchema) => {
-    console.log(data)
+  const onSubmit = async (data: FormSchema) => {
+    try {
+      await fetch("/api/contact", {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      setResult({
+        message: "Message sent!",
+        error: false
+      })
+    } catch (error) {
+      setResult({
+        message: "An error has occurred. Please try again",
+        error: true
+      })
+    }
   }
 
   return (
@@ -61,14 +85,15 @@ export function ContactForm() {
         <FormField
           name="name"
           control={form.control}
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input
                   placeholder="Who are you?"
-                  className="border-foreground/60 bg-secondary"
+                  className="border-foreground/60 bg-transparent"
                   {...field}
+                  disabled={formState.isSubmitting}
                 />
               </FormControl>
               <FormMessage className="text-right" />
@@ -78,14 +103,15 @@ export function ContactForm() {
         <FormField
           name="email"
           control={form.control}
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
                   placeholder="How can I contact you?"
-                  className="border-foreground/60 bg-secondary"
+                  className="border-foreground/60 bg-transparent"
                   {...field}
+                  disabled={formState.isSubmitting}
                 />
               </FormControl>
               <FormMessage className="text-right" />
@@ -95,15 +121,16 @@ export function ContactForm() {
         <FormField
           name="message"
           control={form.control}
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
                   maxLength={MAX_MESSAGE_LENGTH}
                   placeholder="Should be no more than 280 characters"
-                  className="border-foreground/60 bg-secondary"
+                  className="border-foreground/60 bg-transparent"
                   {...field}
+                  disabled={formState.isSubmitting}
                 />
               </FormControl>
               <span className="flex justify-between">
@@ -115,7 +142,26 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="flex items-center">
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <Send className="mr-2 h-4 w-4" />
+            )}
+            Submit
+          </Button>
+          {result.message ? (
+            <span
+              className={cn(
+                result.error ? "text-destructive" : undefined,
+                "ml-4"
+              )}
+            >
+              {result.message}
+            </span>
+          ) : null}
+        </div>
       </form>
     </Form>
   )
