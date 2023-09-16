@@ -28,9 +28,9 @@ export default function ContactEmail({
             <Section>
               <Link
                 href="https://vhng.dev"
-                className="text-2xl font-bold text-blue-500"
+                className="font-mono text-2xl font-semibold text-blue-500"
               >
-                V_
+                [vhng]
               </Link>
             </Section>
             <Heading className="text-xl font-semibold leading-10">
