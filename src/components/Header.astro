@@ -1,13 +1,13 @@
 ---
 import { BLOG } from "@/lib/constants"
 import { cn } from "@/lib/utils"
-import Logo from "./Logo.astro"
+import Logo from "./logo/Logo.svelte"
 import { ThemeSwitcher } from "./ThemeSwitcher"
 import { buttonVariants } from "./ui/button"
 ---
 
 <div class="container py-1 flex items-center justify-between">
-  <Logo />
+  <Logo client:load />
   <div class="flex items-center">
     <a
       href={BLOG}
