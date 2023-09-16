@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2, Send } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import * as z from "zod"
+import { z } from "zod"
 import { Button } from "../ui/button"
 import {
   Form,
@@ -87,7 +87,7 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel className="after:content-['*'] after:text-destructive">Name</FormLabel>
               <FormControl>
                 <Input
                   placeholder="Who are you?"
@@ -96,7 +96,7 @@ export function ContactForm() {
                   disabled={formState.isSubmitting}
                 />
               </FormControl>
-              <FormMessage className="text-right" />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -105,7 +105,7 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className="after:content-['*'] after:text-destructive">Email</FormLabel>
               <FormControl>
                 <Input
                   placeholder="How can I contact you?"
@@ -114,7 +114,7 @@ export function ContactForm() {
                   disabled={formState.isSubmitting}
                 />
               </FormControl>
-              <FormMessage className="text-right" />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -123,7 +123,7 @@ export function ContactForm() {
           control={form.control}
           render={({ field, formState }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel className="after:content-['*'] after:text-destructive">Message</FormLabel>
               <FormControl>
                 <Textarea
                   maxLength={MAX_MESSAGE_LENGTH}
@@ -133,11 +133,11 @@ export function ContactForm() {
                   disabled={formState.isSubmitting}
                 />
               </FormControl>
-              <span className="flex justify-between">
-                <FormDescription className="text-right">
+              <span className="flex">
+                <FormMessage />
+                <FormDescription className="ml-auto">
                   {form.watch("message").length} / {MAX_MESSAGE_LENGTH}
                 </FormDescription>
-                <FormMessage />
               </span>
             </FormItem>
           )}
