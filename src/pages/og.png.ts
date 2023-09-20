@@ -1,10 +1,10 @@
 import { OGMain } from "@/lib/og/image"
-import { fonts, imageBase64 } from "@/lib/og/resource"
+import { fonts, background, profile } from "@/lib/og/resource"
 import satori from "satori"
 import sharp from "sharp"
 
 export async function GET() {
-  const svg = await satori(OGMain({ imageBase64 }), {
+  const svg = await satori(OGMain({ background, profile }), {
     width: 1200,
     height: 630,
     fonts
