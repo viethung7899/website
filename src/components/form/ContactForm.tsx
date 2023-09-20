@@ -92,7 +92,7 @@ export function ContactForm() {
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Who are you?"
+                  placeholder="Alan Turing"
                   className="border-foreground/60 bg-transparent"
                   {...field}
                   disabled={formState.isSubmitting}
@@ -112,7 +112,7 @@ export function ContactForm() {
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="How can I contact you?"
+                  placeholder="alan.turing@example.com"
                   className="border-foreground/60 bg-transparent"
                   {...field}
                   disabled={formState.isSubmitting}

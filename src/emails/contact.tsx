@@ -8,8 +8,10 @@ import {
   Preview,
   Link,
   Section,
-  Text
+  Text,
+  Img
 } from "@react-email/components"
+import profile from "../assets/me.png"
 
 export default function ContactEmail({
   name = "Alan",
@@ -28,16 +30,22 @@ export default function ContactEmail({
             <Section>
               <Link
                 href="https://vhng.dev"
-                className="font-mono text-2xl font-semibold text-blue-500"
+                className="font-mono font-semibold text-blue-500"
               >
-                [vhng]
+                <Img
+                  alt="vhng.dev"
+                  src={profile.src}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
               </Link>
             </Section>
             <Heading className="text-xl font-semibold leading-10">
               You got message!
             </Heading>
             <Section>
-              <Text className="leading-4">Heyo,</Text>
+              <Text className="leading-4">Hi,</Text>
               <Text className="leading-4">
                 {name} from <Link href={`mailto:${email}`}>{email}</Link> sent
                 you a message.
