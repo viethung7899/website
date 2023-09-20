@@ -1,25 +1,38 @@
 ---
+import profile from "@/assets/me.png"
 import { GITHUB, LINKEDIN } from "@/lib/constants"
+import { Image } from "astro:assets"
 ---
 
-<section id="about" class="my-8 space-y-4 container scroll-mt-16">
-  <small class="text-sm">👋 Hello, my name is</small>
-  <h1 class="text-4xl font-semibold font-mono tracking-tight text-primary">
-    Viet-Hung Nguyen
-  </h1>
-  <div class="space-y-1">
-    <p>
-      I'm an international student from Vietnam studying at Simon Fraser
-      University.
-    </p>
-    <p>
-      I enjoy creating beautiful and user-friendly applications and I'm
-      passionate to learn new technology.
-    </p>
-    <p>
-      Find me on <a href={LINKEDIN}>Linkedin</a> or <a href={GITHUB}>GitHub</a>
-    </p>
+<section
+  id="about"
+  class="flex flex-col-reverse sm:flex-row my-8 gap-8 items-start container scroll-mt-16"
+>
+  <div class="space-y-4">
+    <small class="text-sm">👋 Hello, my name is</small>
+    <h1 class="text-4xl font-semibold font-mono tracking-tight text-primary">
+      Viet-Hung Nguyen
+    </h1>
+    <div class="space-y-1">
+      <p>
+        I'm an international student from Vietnam studying at Simon Fraser
+        University.
+      </p>
+      <p>
+        I enjoy creating beautiful and user-friendly applications and I'm
+        passionate to learn new technology.
+      </p>
+      <p>
+        Find me on <a href={LINKEDIN}>Linkedin</a> or <a href={GITHUB}>GitHub</a
+        >
+      </p>
+    </div>
   </div>
+  <Image
+    alt="My profile"
+    src={profile}
+    class="w-[120px] h-[120px] md:w-[200px] md:h-[200px] rounded-full mix-blend-luminosity border-8"
+  />
 </section>
 
 <style>

@@ -18,7 +18,7 @@ export function OGMain(props) {
           fontFamily: "JetBrains Mono"
         }}
       >
-        [vhng]
+        [v]
       </div>
       <div tw="flex flex-col">
         <div tw="text-5xl font-semibold">Viet-Hung Nguyen</div>
