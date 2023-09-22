@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev --port 7899",
     "start": "astro dev --port 7899",
-    "format": "prettier --write . --plugin prettier-plugin-tailwindcss --plugin prettier-plugin-astro",
+    "format": "prettier --write . --plugin prettier-plugin-astro --plugin prettier-plugin-tailwindcss",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
