@@ -2,6 +2,7 @@
 import profile from "@/assets/me.png"
 import { GITHUB, LINKEDIN } from "@/lib/constants"
 import { Image } from "astro:assets"
+import { cn } from "../../lib/utils"
 ---
 
 <section
@@ -14,22 +15,28 @@ import { Image } from "astro:assets"
       Viet-Hung Nguyen
     </h1>
     <div class="space-y-2">
-      <p>
+      <p class="text-sm text-foreground/80">
         I'm an international student from Vietnam studying at Simon Fraser
         University.
       </p>
-      <p>
+      <p class="text-sm text-foreground/80">
         I enjoy creating beautiful and user-friendly applications and I'm
         passionate to learn new technology.
       </p>
-      <p>
-        I'm currently looking for a role as a developer. <a
-          id="hire-me"
-          class="relative font-semibold text-foreground bg-background border border-primary px-2 py-1 rounded-full before:content-['']"
+      <p class="text-sm text-foreground/80">
+        I'm currently looking for a role as a developer.
+        <a
+          class={cn(
+            "relative px-2 py-1 font-semibold text-foreground bg-background",
+            "border border-primary rounded-full",
+            "before:content-[''] before:absolute before:-inset-1",
+            "before:bg-primary before:rounded-full before:-z-10 before:blur",
+            "before:hidden hover:before:block"
+          )}
           href="/resume.pdf">Hire me?</a
         >
       </p>
-      <p>
+      <p class="text-sm text-foreground/80">
         Find me on <a
           href={LINKEDIN}
           class="text-foreground underline after:content-['_↗'] hover:text-primary"
@@ -45,16 +52,10 @@ import { Image } from "astro:assets"
   <Image
     alt="My profile"
     src={profile}
-    class="w-[120px] h-[120px] md:w-[200px] md:h-[200px] rounded-full mix-blend-luminosity border-8"
+    class={cn(
+      "w-[120px] h-[120px] md:w-[200px] md:h-[200px]",
+      "rounded-full border-8",
+      "mix-blend-luminosity"
+    )}
   />
 </section>
-
-<style>
-  p {
-    @apply text-sm text-foreground/80;
-  }
-
-  a#hire-me:hover::before {
-    @apply absolute -inset-1 -z-10 rounded-full bg-primary blur;
-  }
-</style>
