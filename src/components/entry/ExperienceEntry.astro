@@ -22,10 +22,10 @@ const range = (() => {
 })()
 ---
 
-<li class="relative group flex flex-col sm:flex-row gap-2">
-  <small class="text-foreground/60 w-36">{range}</small>
-  <div class="space-y-2 flex-1">
-    <h3 class="font-semibold group-hover:text-primary transition-colors">
+<li class="group relative flex flex-col gap-2 sm:flex-row">
+  <small class="w-36 text-foreground/60">{range}</small>
+  <div class="flex-1 space-y-2">
+    <h3 class="font-semibold transition-colors group-hover:text-primary">
       {role} • {place}
     </h3>
     <div class="text-sm text-foreground/60">
@@ -42,7 +42,7 @@ const range = (() => {
     </div>
   </div>
   <div
-    class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted transition-colors"
+    class="absolute -inset-4 -z-10 rounded-md transition-colors group-hover:bg-muted"
   >
   </div>
 </li>

@@ -8,14 +8,15 @@ export function OGMain(props) {
   const { background, profile } = props
   return (
     <div
-      tw="w-full h-full flex flex-col justify-between p-16 text-white"
+      tw="flex h-full w-full flex-col justify-between p-16 text-white"
       style={{
         backgroundImage: `url(data:image/png;base64,${background})`
       }}
     >
       <img
+        alt="Viet-Hung Nguyen"
         src={`data:image/png;base64,${profile}`}
-        tw="w-20 h-20 border-slate-500/50 border-4 rounded-full"
+        tw="h-20 w-20 rounded-full border-4 border-slate-500/50"
       />
       <div tw="flex flex-col">
         <div tw="text-5xl font-semibold">Viet-Hung Nguyen</div>

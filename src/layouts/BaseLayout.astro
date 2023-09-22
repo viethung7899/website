@@ -18,11 +18,11 @@ import "@/styles/globals.css"
     <slot name="seo" />
     <ThemeProvider />
   </head>
-  <body class="min-h-screen flex flex-col">
-    <header class="border-b sticky top-0 bg-background z-40">
+  <body class="flex min-h-screen flex-col">
+    <header class="sticky top-0 z-40 border-b bg-background">
       <Header />
     </header>
-    <main class="flex flex-col flex-1">
+    <main class="flex flex-1 flex-col">
       <slot />
     </main>
     <footer class="border-t">

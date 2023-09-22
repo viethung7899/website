@@ -1,9 +1,4 @@
-import {
-  Heading,
-  Link,
-  Section,
-  Text,
-} from "@react-email/components"
+import { Heading, Link, Section, Text } from "@react-email/components"
 import EmailLayout from "./layout"
 
 export default function ContactEmail({

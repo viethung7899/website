@@ -15,7 +15,7 @@ const { Content } = await entry.render()
 ---
 
 <li
-  class="group relative flex flex-col-reverse sm:flex-row gap-4 transition-colors"
+  class="group relative flex flex-col-reverse gap-4 transition-colors sm:flex-row"
 >
   <figure class="w-36">
     {
@@ -26,10 +26,10 @@ const { Content } = await entry.render()
           width={640}
           height={360}
           format="avif"
-          class="border rounded-md"
+          class="rounded-md border"
         />
       ) : (
-        <div class="hidden border sm:flex items-center rounded-md aspect-[16/9]">
+        <div class="hidden aspect-[16/9] items-center rounded-md border sm:flex">
           <Icons.gitHub className="w-8 h-8 m-auto" />
         </div>
       )
@@ -55,7 +55,7 @@ const { Content } = await entry.render()
     </div>
   </div>
   <div
-    class="absolute -z-10 -inset-4 rounded-md group-hover:bg-muted highlighter transition-colors"
+    class="highlighter absolute -inset-4 -z-10 rounded-md transition-colors group-hover:bg-muted"
   >
   </div>
 </li>

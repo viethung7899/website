@@ -7,11 +7,11 @@ import { cn } from "../../lib/utils"
 
 <section
   id="about"
-  class="flex flex-col-reverse sm:flex-row my-8 gap-8 items-start container scroll-mt-16"
+  class="container my-8 flex scroll-mt-16 flex-col-reverse items-start gap-8 sm:flex-row"
 >
   <div class="space-y-4">
     <small class="text-sm">👋 Hello, my name is</small>
-    <h1 class="text-4xl font-semibold font-mono tracking-tight text-primary">
+    <h1 class="font-mono text-4xl font-semibold tracking-tight text-primary">
       Viet-Hung Nguyen
     </h1>
     <div class="space-y-2">
@@ -27,10 +27,10 @@ import { cn } from "../../lib/utils"
         I'm currently looking for a role as a developer.
         <a
           class={cn(
-            "relative px-2 py-1 font-semibold text-foreground bg-background",
-            "border border-primary rounded-full",
-            "before:content-[''] before:absolute before:-inset-1",
-            "before:bg-primary before:rounded-full before:-z-10 before:blur",
+            "relative bg-background px-2 py-1 font-semibold text-foreground",
+            "rounded-full border border-primary",
+            "before:absolute before:-inset-1 before:content-['']",
+            "before:-z-10 before:rounded-full before:bg-primary before:blur",
             "before:hidden hover:before:block"
           )}
           href="/resume.pdf">Hire me?</a
@@ -53,7 +53,7 @@ import { cn } from "../../lib/utils"
     alt="My profile"
     src={profile}
     class={cn(
-      "w-[120px] h-[120px] md:w-[200px] md:h-[200px]",
+      "h-[120px] w-[120px] md:h-[200px] md:w-[200px]",
       "rounded-full border-8",
       "mix-blend-luminosity"
     )}
