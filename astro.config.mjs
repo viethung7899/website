@@ -2,7 +2,6 @@ import react from "@astrojs/react"
 import tailwind from "@astrojs/tailwind"
 import vercel from "@astrojs/vercel/serverless"
 import { defineConfig } from "astro/config"
-import svelte from "@astrojs/svelte"
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,8 +10,7 @@ export default defineConfig({
     react(),
     tailwind({
       applyBaseStyles: false
-    }),
-    svelte()
+    })
   ],
   output: "hybrid",
   adapter: vercel({
