@@ -1,17 +1,10 @@
 import {
-  Body,
-  Container,
-  Head,
   Heading,
-  Html,
-  Tailwind,
-  Preview,
   Link,
   Section,
   Text,
-  Img
 } from "@react-email/components"
-import profile from "../assets/me.png"
+import EmailLayout from "./layout"
 
 export default function ContactEmail({
   name = "Alan",
@@ -19,42 +12,18 @@ export default function ContactEmail({
   message = "This site is awesome!!!"
 }) {
   return (
-    <Html>
-      <Head />
-      <Preview>
-        {name} from {email} sent you a message!
-      </Preview>
-      <Tailwind>
-        <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-8 max-w-md rounded border border-solid border-slate-300 p-6">
-            <Section>
-              <Link
-                href="https://vhng.dev"
-                className="font-mono font-semibold text-blue-500"
-              >
-                <Img
-                  alt="vhng.dev"
-                  src={profile.src}
-                  width={48}
-                  height={48}
-                  className="rounded-full"
-                />
-              </Link>
-            </Section>
-            <Heading className="text-xl font-semibold leading-10">
-              You got message!
-            </Heading>
-            <Section>
-              <Text className="leading-4">Hi,</Text>
-              <Text className="leading-4">
-                {name} from <Link href={`mailto:${email}`}>{email}</Link> sent
-                you a message.
-              </Text>
-              <Text className="rounded bg-slate-300 p-4">{message}</Text>
-            </Section>
-          </Container>
-        </Body>
-      </Tailwind>
-    </Html>
+    <EmailLayout preview={`${name} sent you a message`}>
+      <Heading className="text-xl font-semibold leading-10">
+        You got message!
+      </Heading>
+      <Section>
+        <Text className="leading-4">Hi,</Text>
+        <Text className="leading-4">
+          {name} from <Link href={`mailto:${email}`}>{email}</Link> sent you a
+          message.
+        </Text>
+        <Text className="rounded bg-slate-300 p-4">{message}</Text>
+      </Section>
+    </EmailLayout>
   )
 }
