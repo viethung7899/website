@@ -18,7 +18,7 @@ const useScrollPosition = () => {
 
 export function Logo() {
   const scrollPosition = useScrollPosition()
-  const isTop = scrollPosition > 0
+  const isTop = scrollPosition <= 0
 
   return (
     <a href="/" className="font-mono text-primary">
