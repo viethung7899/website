@@ -1,10 +1,13 @@
 ---
-role: Front-end Developer
-place: Ovoflo
+role: Full-stack Developer
+place: Partner Worldwide
 url: https://ovoflow.vercel.app
-technology: [react, nextjs]
+technology: [react, nextjs, drupal]
 start:
-  month: 6
+  month: 5
+  year: 2023
+end:
+  month: 9
   year: 2023
 ---
 

@@ -4,10 +4,10 @@ place: Baytree Centre
 url: https://baytreecentre.org
 technology: [react, django]
 start:
-  month: 5
+  month: 4
   year: 2022
 end:
-  month: 9
+  month: 8
   year: 2022
 ---
 
