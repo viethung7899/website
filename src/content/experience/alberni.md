@@ -1,10 +1,13 @@
 ---
-role: Web Developer Consultant
+role: Freelance Web Developer Consultant
 place: Alberni Design
 url: https://albernidesign.com/
 technology: [drupal, php]
 start:
   month: 9
+  year: 2023
+end:
+  month: 12
   year: 2023
 ---
 

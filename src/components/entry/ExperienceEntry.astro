@@ -16,7 +16,7 @@ const formatter = new Intl.DateTimeFormat("en", {
 })
 
 const range = (() => {
-  const startTime = new Date(start.year, start.month)
+  const startTime = new Date(start.year, start.month - 1)
   if (!end) return `${formatter.format(startTime)} \u2013 present`
   return formatter.formatRange(startTime, new Date(end.year, end.month - 1))
 })()
