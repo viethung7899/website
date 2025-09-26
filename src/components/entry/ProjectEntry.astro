@@ -29,7 +29,7 @@ const { Content } = await entry.render()
           class="rounded-md border"
         />
       ) : (
-        <div class="hidden aspect-[16/9] items-center rounded-md border sm:flex">
+        <div class="hidden aspect-video items-center rounded-md border sm:flex">
           <Icons.gitHub className="w-8 h-8 m-auto" />
         </div>
       )
@@ -60,7 +60,8 @@ const { Content } = await entry.render()
   </div>
 </li>
 
-<style is:global>
+<style>
+  @reference "@/styles/globals.css";
   .project-description {
     @apply text-sm text-muted-foreground;
   }
